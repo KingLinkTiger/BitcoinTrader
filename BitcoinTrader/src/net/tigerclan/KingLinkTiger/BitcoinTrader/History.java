@@ -1,3 +1,7 @@
+/*
+ * TODO: Make a moving range of values to look at rather than keep ALL values.
+ * TODO: Possibly store old values and be able to read them later. (This may lead to stale unusable data later)
+ */
 package net.tigerclan.KingLinkTiger.BitcoinTrader;
 
 import java.util.ArrayList;
@@ -23,10 +27,12 @@ public class History {
 			firstTrade = false;
 		}
 		
+		//Must update this to make moving peaks
 		if(lastTrade > getPeak()){
 			setPeak(lastTrade);
 		}
 		
+		//Must update this to make moving troughs
 		if(lastTrade < getTrough()){
 			setTrough(lastTrade);
 		}
